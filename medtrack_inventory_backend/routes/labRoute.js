@@ -1,15 +1,13 @@
 import express from 'express';
-//import pharmacyController from '../controller/pharmacyController.js';
+import labController from '../controller/labController.js';
 
 const router = express.Router();
 
-// router.post('/api/drug', pharmacyController.addDrug)
-// router.get('/api/drugs', pharmacyController.getDrugs)
-// router.get('/api/drugs/:id', pharmacyController.getDrug)
-// router.put('/api/drugs/:id', pharmacyController.updateDrug)
-// router.delete('/api/drugs/:id', pharmacyController.deleteDrug)
-
-
+ router.post('/api/lab', labController.addLab)
+ router.get('/api/labs', labController.getLabs)
+ router.get('/api/labs/:id', labController.getLab)
+ router.put('/api/labs/:id', labController.updateLab)
+ router.delete('/api/labs/:id', labController.deleteLab)
 
 
 

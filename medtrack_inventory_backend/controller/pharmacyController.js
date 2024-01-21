@@ -37,6 +37,8 @@ const getDrugs = async (req, res) => {
   }
 };
 
+
+//Getting one by id
 const getDrug = async (req, res) => {
   const { id } = req.params;
   try {
@@ -63,8 +65,7 @@ const updateDrug = async (req, res) => {
     // const updated = await pharmacyModel.findByIdAndUpdate({_id: new ObjectId(id)}, {$set:
        const updated = await pharmacyModel.findByIdAndUpdate({_id: id}, {$set:
         { drugName, drugDesc, unitPrice, drugCode, price } }, {returnDocument: "after"});
-        
-
+      
        if(updated) {
         res.status(200).send(updated)
        }
@@ -74,37 +75,14 @@ const updateDrug = async (req, res) => {
     }
 }
 
-// const updateDrug = async (req, res) => {
-//   const { id } = req.params;
-
-//   const { drugName, drugDesc, unitPrice, drugCode, price } = req.body;
-//   const drug = new pharmacyModel({
-//     drugName,
-//     drugDesc,
-//     unitPrice,
-//     drugCode,
-//     price,
-//   });
-
-//   try {
-//     const updatedD = await pharmacyModel.findOneAndUpdate({
-//       _id: new ObjectId(id)
-//     }, {$set: drug}, {returnDocument: "after"});
-//     if (updatedD) {
-//       res.status(200).send(updatedD);
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
 
 
 const deleteDrug = async (req, res) => {
   const { id } = req.params;
 
   try {
-     //const drug = await pharmacyModel.findByIdAndDelete({_id: id});
-    const drug = await pharmacyModel.findByIdAndDelete({_id: new ObjectId(id)});
+     const drug = await pharmacyModel.findByIdAndDelete({_id: id});
+    //const drug = await pharmacyModel.findByIdAndDelete({_id: new ObjectId(id)});
       
     res.status(200).json({ msg: "deleted successfully" });
   } catch (error) {

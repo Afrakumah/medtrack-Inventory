@@ -25,7 +25,7 @@ const pharmacySchema = new Schema({
     price: {
         type: Number,
         required: true
-    },
+    }
 });
 
 const pharmacy = mongoose.model('pharmacy', pharmacySchema)
