@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-//app.use(cors())
+//app.use(cors({origin: 'react path'}))
 app.use(morgan('dev'))
 app.use(express.json())
 app.use('/', pharmacyRoute)

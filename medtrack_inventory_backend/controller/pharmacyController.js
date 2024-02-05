@@ -2,14 +2,14 @@ import pharmacyModel from "../models/pharmacyModel.js";
 //import { ObjectId } from "mongodb";
 
 const addDrug = async (req, res) => {
-  const { drugName, drugDesc, unitPrice, drugCode, price } = req.body;
+  const { drug_name, description, unit_pricing, drug_code, price } = req.body;
 
   try {
     const drug = new pharmacyModel({
-      drugName,
-      drugDesc,
-      unitPrice,
-      drugCode,
+      drug_name,
+      description,
+      unit_pricing,
+      drug_code,
       price,
     });
 
@@ -60,11 +60,11 @@ const updateDrug = async (req, res) => {
     try {
       
        //const drug = await pharmacyModel.findOne({id})
-       const { drugName, drugDesc, unitPrice, drugCode, price } = req.body;
+       const { drug_name, description, unit_pricing, drug_code, price } = req.body;
    
     // const updated = await pharmacyModel.findByIdAndUpdate({_id: new ObjectId(id)}, {$set:
        const updated = await pharmacyModel.findByIdAndUpdate({_id: id}, {$set:
-        { drugName, drugDesc, unitPrice, drugCode, price } }, {returnDocument: "after"});
+        { drug_name, description, unit_pricing, drug_code, price } }, {returnDocument: "after"});
       
        if(updated) {
         res.status(200).send(updated)

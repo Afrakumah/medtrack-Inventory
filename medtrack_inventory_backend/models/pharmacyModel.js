@@ -2,22 +2,22 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const pharmacySchema = new Schema({
-    drugName: {
+    drug_name: {
         type: String,
         required: true
     },
 
-    drugDesc: {
+    description: {
         type: String,
         required: true
     },
 
-    unitPrice: {
+    unit_pricing: {
         type: String,
         required: true
     },
 
-    drugCode: {
+    drug_code: {
         type: String,
         required: true
     },
